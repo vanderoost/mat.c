@@ -1,6 +1,5 @@
 #include "mat/mat.h"
 #include "rng/rng.h"
-#include <_time.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
