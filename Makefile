@@ -21,6 +21,7 @@ DEPS = $(patsubst $(SRC)/%.c,$(OBJ)/%.d,$(ALL_SRCS))
 
 TEST_SRCS = $(wildcard $(TEST)/*.c)
 TEST_BINS = $(patsubst $(TEST)/%.c,$(BIN)/$(TEST)/%,$(TEST_SRCS))
+TEST_DEPS = $(patsubst $(TEST)/%.c,$(BIN)/$(TEST)/%.d,$(TEST_SRCS))
 
 all: $(BINS)
 
@@ -48,7 +49,7 @@ hot:
 clean:
 	@rm -rf $(BIN) $(OBJ)
 
--include $(DEPS)
+-include $(DEPS) $(TEST_DEPS)
 
 .PHONY: all run test hot clean
 .SECONDARY: $(LIB_OBJS) $(BIN_OBJS)
