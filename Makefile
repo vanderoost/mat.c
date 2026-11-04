@@ -43,7 +43,10 @@ $(BIN)/$(TEST)/%: $(TEST)/%.c $(LIB_OBJS)
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(LDFLAGS) $< $(LIB_OBJS) -MMD -o $@
 
-hot:
+hot-run:
+	@find $(SRC) -type f | entr -c make run
+
+hot-test:
 	@find $(SRC) $(TEST) -type f | entr -c make test
 
 clean:
