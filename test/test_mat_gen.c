@@ -6,11 +6,11 @@ float one(void) { return 1.0f; }
 
 void test_mat_fun_ones(void) {
   // clang-format off
-  Mat dst = {2, 2, (float[4]) {0}};
-  Mat exp = {2, 2, (float[4]) {
+  Mat dst = mat_new(2, 2, (float[4]) {0});
+  Mat exp = mat_new(2, 2, (float[4]) {
     1, 1,
     1, 1,
-  }};
+  });
   // clang-format on
 
   mat_gen(dst, one);

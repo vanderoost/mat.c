@@ -6,15 +6,15 @@ float add_one(float x) { return x + 1.0f; }
 
 void test_mat_fun_add_one(void) {
   // clang-format off
-  Mat src = {2, 3, (float[]) {
+  Mat src = mat_new(2, 3, (float[]) {
     1, 2, 3,
     4, 5, 6,
-  }};
-  Mat dst = {2, 3, (float[2 * 3]) {0}};
-  Mat exp = {2, 3, (float[]) {
+  });
+  Mat dst = mat_new(2, 3, (float[2 * 3]) {0});
+  Mat exp = mat_new(2, 3, (float[]) {
     2, 3, 4,
     5, 6, 7,
-  }};
+  });
   // clang-format on
 
   mat_fun(dst, src, add_one);
